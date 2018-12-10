@@ -1,13 +1,13 @@
 #!/bin/bash
 index=0
 text=$1
-while IFS= read -r line in text
+while IFS= read -r line in $text
 do
 	if [ ${line:0:1} != "#" ]; then 	 
 		urlsarray+=($line)
 	fi
 	index=$(($index+1))
-done < text
+done < $text
 if [ ! -e file ]; then
 	touch file
 	for element in "${urlsarray[@]}"
